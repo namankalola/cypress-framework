@@ -1,0 +1,22 @@
+{
+  "name": "cypress-framework",
+  "version": "1.0.0",
+  "description": "Cypress Automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namankalola/cypress-framework.git"
+  },
+  "author": "NAMANKUMAR KALOLA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namankalola/cypress-framework/issues"
+  },
+  "homepage": "https://github.com/namankalola/cypress-framework#readme",
+  "devDependencies": {
+    "cypress": "^14.2.1"
+  }
+}
