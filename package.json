@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/namankalola/cypress-framework#readme",
   "devDependencies": {
-    "cypress": "^14.2.1"
+    "cypress": "^14.2.1",
+    "xlsx": "^0.18.5"
   }
 }

@@ -1,4 +1,4 @@
-import LoginPage from '../../support/pages/sample/LoginPage';
+import LoginPage from '../../pages/sample/LoginPage';
 
 describe('Login Test for SauceDemo', () => {
     before(() => {
