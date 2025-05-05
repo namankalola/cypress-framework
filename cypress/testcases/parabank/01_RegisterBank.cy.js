@@ -1,20 +1,24 @@
 import homePage from '../../pages/parabank/HomePage';
 import registerPage from '../../pages/parabank/RegisterPage';
+import { setSharedData } from '../../support/sharedData';
 
-describe('Register Bank Test', () => {
+describe('User Registration', () => {
     let testData;
-
+    const username = 'user_' + Date.now(); // Generate a unique username
     before(() => {
         cy.log('Reading test data from Excel file...');
         const filePath = 'cypress/fixtures/TestData.xlsx';
         const sheetName = 'Sheet1';
         cy.log('File path: ' + filePath);
-        cy.log('Sheet name: ' + sheetName); 
+        cy.log('Sheet name: ' + sheetName);
         cy.task('readExcel', { filePath, sheetName }).then((data) => {
             testData = data; // Store the test data
         });
 
-        Cypress.env('username', 'user_' + Date.now());
+        const username = 'user_' + Date.now(); // Generate a unique username
+        cy.task('setSharedData', { key: 'username', value: username }); // Store it in the task
+        Cypress.env('username', username); // Set it in Cypress.env for immediate use
+        cy.log('Generated username: ' + username);
     });
 
     beforeEach(() => {
@@ -23,7 +27,6 @@ describe('Register Bank Test', () => {
 
     it('should successfully register a new user', () => {
         const user1 = testData[0];
-        const username = Cypress.env('username');
         homePage.clickRegisterLink();
         registerPage.enterFirstName(user1.FirstName);
         registerPage.enterLastName(user1.LastName);
@@ -42,7 +45,6 @@ describe('Register Bank Test', () => {
 
     it('This username already exists. - Message displayed', () => {
         const user2 = testData[1];
-        const username = Cypress.env('username');
         homePage.clickRegisterLink();
         registerPage.enterFirstName(user2.FirstName);
         registerPage.enterLastName(user2.LastName);
